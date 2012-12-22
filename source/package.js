@@ -1,0 +1,11 @@
+enyo.depends(
+    "$lib/layout",
+    "$lib/onyx",
+    "$lib/mvc",
+    "css",
+    "apps",
+    "controllers",
+    "models",
+    "views",
+    "start.js"
+);
