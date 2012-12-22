@@ -14,7 +14,6 @@
         defaults: {
             title: "default title",
             selected: false,
-            items: [{},{},{}]
         }
     });
     

@@ -7,6 +7,7 @@ enyo.kind({
     status: null,
     bindings: [
         {from: "controller.model", to: "$.filters.showing"},
+        {from: "$.filters.active", to: "controller.filter"},
         {from: "controller.model", to: "status"}
     ],
     components: [
@@ -27,8 +28,10 @@ enyo.kind({
             components: [
                 {
                     name: "filters",
+                    classes: "filters",
                     kind: "onyx.RadioGroup",
                     controller: "Todos.selectedList",
+                    onchange: "filterChanged",
                     components: [
                         {name: "all", content: "all", active: true},
                         {name: "active", content: "active"},

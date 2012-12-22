@@ -7,9 +7,8 @@ enyo.kind({
     fit: true,
     status: null,
     bindings: [
+        {from: "controller.model", to: "$.header.showing"},
         {from: "controller.model", to: "$.description.showing"},
-        {from: "controller.model", to: "$.completed.showing"},
-        {from: "controller.model", to: "$.label.showing"},
         {from: "controller.model", to: "status"},
         {from: "controller.task", to: "$.header.$.label.$.text.content"},
         {from: "controller.completed", to: "$.completed.checked"},
@@ -25,6 +24,12 @@ enyo.kind({
                     name: "completed",
                     kind: "onyx.Checkbox",
                     onchange: "didCheck"
+                },
+                {
+                    name: "delete",
+                    kind: "onyx.Button",
+                    content: "delete",
+                    ontap: "destroyItem"
                 }
             ]
         },

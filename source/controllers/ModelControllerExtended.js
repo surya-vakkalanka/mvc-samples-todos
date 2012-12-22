@@ -14,5 +14,9 @@ enyo.ModelController.extend({
     },
     didCheck: function (sender, event) {
         this.set("completed", sender.get("checked"));
+    },
+    destroyItem: function () {
+        var model = this.model;
+        if (model) model.destroy();
     }
 });
