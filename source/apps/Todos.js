@@ -5,8 +5,8 @@ enyo.kind({
     autoStart: true,
     renderOnStart: true,
     bindings: [
-        {from: "lists.selection", to: "selectedList.model"},
-        {from: "selectedList.proxy.selection", to: "selectedItem.model"}
+        {from: "Todos.lists.selection", to: "Todos.selectedList.model"},
+        {from: "Todos.selectedList.proxy.selection", to: "Todos.selectedItem.model"}
     ],
     controllers: [
         {name: "lists", kind: "Todos.ListsController"},
