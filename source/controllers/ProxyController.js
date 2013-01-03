@@ -23,8 +23,11 @@ enyo.kind({
     dataChanged: function () {
         this.renderAllRows();
     },
-    modelAdded: function () {
-        if (this.get("data").length) {
+    modelAdded: function (sender, event) {
+        var data = this.get("data");
+        var len = data.length;
+        var model = event.model;
+        if (len && !!~data.indexOf(model)) {
             this.inherited(arguments);
         }
     }
