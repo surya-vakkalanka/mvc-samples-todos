@@ -17,7 +17,9 @@
         },
         initialize: function () {
             var cid = this.cid;
-            this.set("title", this.get("title") + " " + cid);
+            var title = this.get("title");
+            title = enyo.format("%. %.", title, cid);
+            this.set("title", title);
         }
     });
     
