@@ -14,6 +14,10 @@
         defaults: {
             title: "default title",
             selected: false,
+        },
+        initialize: function () {
+            var cid = this.cid;
+            this.set("title", this.get("title") + " " + cid);
         }
     });
     
