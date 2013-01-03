@@ -2,6 +2,9 @@ enyo.kind({
     name: "Todos.ProxyController",
     kind: "enyo.CollectionRepeaterController",
     filter: "all",
+    handlers: {
+        onmodelchange: "dataChanged"
+    },
     data: enyo.Computed(function () {
         var filter = this.filter;
         return this.get(filter);
@@ -19,5 +22,10 @@ enyo.kind({
     }),
     dataChanged: function () {
         this.renderAllRows();
+    },
+    modelAdded: function () {
+        if (this.get("data").length) {
+            this.inherited(arguments);
+        }
     }
 });

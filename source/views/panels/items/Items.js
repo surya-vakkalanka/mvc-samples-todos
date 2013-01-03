@@ -31,7 +31,6 @@ enyo.kind({
                     classes: "filters",
                     kind: "onyx.RadioGroup",
                     controller: "Todos.selectedList",
-                    onchange: "filterChanged",
                     components: [
                         {name: "all", content: "all", active: true},
                         {name: "active", content: "active"},
