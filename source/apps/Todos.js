@@ -9,8 +9,8 @@ enyo.kind({
         {from: "Todos.selectedList.proxy.selection", to: "Todos.selectedItem.model"}
     ],
     controllers: [
-        {name: "lists", kind: "Todos.ListsController"},
-        {name: "selectedList", kind: "Todos.SelectedListController"},
-        {name: "selectedItem", kind: "Todos.SelectedItemController"}
+        {name: "Todos.lists", kind: "Todos.ListsController"},
+        {name: "Todos.selectedList", kind: "Todos.SelectedListController"},
+        {name: "Todos.selectedItem", kind: "Todos.SelectedItemController"}
     ]
 });

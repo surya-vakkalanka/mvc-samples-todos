@@ -9,4 +9,4 @@ enyo.kind({
         {name: "center", kind: "Todos.Items"},
         {name: "right", kind: "Todos.Details"}
     ]
-})
+});
