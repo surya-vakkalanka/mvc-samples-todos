@@ -20,9 +20,11 @@
             var task = this.get("task");
             var rand = Math.floor((Math.random()*10)%5);
             var desc = paragraphs[rand];
-            task = enyo.format("%. %.", task, cid);
-            this.set("task", task);
-            this.set("description", desc);
+            if ("" === task) {
+                task = enyo.format("%. %.", task, cid);
+                this.set("task", task);
+                this.set("description", desc);
+            }
         }
     });
     

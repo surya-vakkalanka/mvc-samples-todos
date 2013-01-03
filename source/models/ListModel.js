@@ -12,14 +12,17 @@
             }
         }],
         defaults: {
-            title: "default title",
+            title: "",
             selected: false,
         },
         initialize: function () {
             var cid = this.cid;
             var title = this.get("title");
-            title = enyo.format("%. %.", title, cid);
-            this.set("title", title);
+            if ("" === title) {
+                title = enyo.format("%. %.", title, cid);
+                this.set("title", title);
+            }
+            this.set("selected", false);
         }
     });
     
