@@ -2,6 +2,7 @@ enyo.depends(
     "$lib/layout",
     "$lib/onyx",
     "$lib/mvc",
+    "$lib/amplify/store/amplify.store.js",
     "css",
     "apps",
     "controllers",

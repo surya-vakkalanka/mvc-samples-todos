@@ -1,7 +1,8 @@
 (function () {
     
     Todos.ListCollection = Backbone.Collection.extend({
-        model: Todos.ListModel
+        model: Todos.ListModel,
+        prefix: "list"
     });
     
 }());
