@@ -10,6 +10,6 @@
 [submodule "enyo"]
 	path = enyo
 	url = https://github.com/clinuz/enyo.git
-[submodule "lib/localstorage"]
-	path = lib/localstorage
-	url = https://github.com/jeromegn/Backbone.localStorage.git
+[submodule "lib/amplify"]
+	path = lib/amplify
+	url = git://github.com/appendto/amplify.git

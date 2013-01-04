@@ -2,7 +2,7 @@ enyo.depends(
     "$lib/layout",
     "$lib/onyx",
     "$lib/mvc",
-    "$lib/localstorage/backbone.localStorage.js",
+    "$lib/amplify/store/amplify.store.js",
     "css",
     "apps",
     "controllers",
