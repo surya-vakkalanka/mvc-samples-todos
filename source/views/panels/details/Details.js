@@ -18,7 +18,7 @@ enyo.kind({
                 {kind: "onyx.Grabber"},
                 {name: "label", content: " ", fit: true},
                 {
-                    name: "delete",
+                    name: "remove",
                     kind: "onyx.Button",
                     content: "Delete",
                     classes: "onyx-negative", 
@@ -73,7 +73,7 @@ enyo.kind({
         }
     ],
     statusChanged: function () {
-        this.$.delete.setShowing(this.status);
+        this.$.remove.setShowing(this.status);
         this.$.description.setShowing(this.status);
         this.$.status.setShowing(this.status);
         this.reflow();

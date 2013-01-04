@@ -70,7 +70,7 @@ enyo.ready(function () {
             var key = store.findKey(id);
             return amplify.store(key);
         },
-        delete: function (model) {
+        remove: function (model) {
             var id = model.id;
             var key = store.findKey(id);
             var related;
@@ -113,7 +113,7 @@ enyo.ready(function () {
             else res = store.find(model);
             break;
         case "delete":
-            res = store.delete(model);
+            res = store.remove(model);
             break;
         case "update":
             res = store.update(model);
