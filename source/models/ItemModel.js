@@ -17,12 +17,11 @@
             description: "Add a description for this todo item"
         },
         initialize: function () {
-            var cid = this.cid;
             var task = this.get("task");
             var rand = Math.floor((Math.random()*10)%5);
             var desc = paragraphs[rand];
             if ("" === task) {
-                task = "Task " + this.cid;//enyo.format("%. %.", task, cid);
+                task = enyo.format("Task %.", this.cid.substring(1));
                 this.set("task", task);
                 this.set("description", desc);
             }

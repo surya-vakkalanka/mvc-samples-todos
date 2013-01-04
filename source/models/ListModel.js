@@ -22,7 +22,7 @@
             var cid = this.cid;
             var title = this.get("title");
             if ("" === title) {
-                title = "TodoList " + this.cid;//enyo.format("%. %.", title, cid);
+                title = enyo.format("TodoList %.", this.cid.substring(1));
                 this.set("title", title);
             }
         },
