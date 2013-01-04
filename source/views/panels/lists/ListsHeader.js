@@ -1,6 +1,5 @@
 enyo.kind({
     name: "Todos.ListsHeader",
-    //kind: "Todos.PanelHeader",
     kind: "onyx.Toolbar", 
     classes: "header",
     layoutKind: "FittableColumnsLayout", 
@@ -9,7 +8,7 @@ enyo.kind({
         {from: "controller.length", to: "length"}
     ],
     components: [
-        {name: "text", content: "TodoLists", fit: true},
+        {name: "label", content: "TodoLists", fit: true},
         {name: "clear", kind: "onyx.Button", classes: "onyx-negative", content: "Delete All", ontap: "clearLists"},
         {name: "add", kind: "onyx.Button", classes: "onyx-affirmative", content: "New List", ontap: "addList"},
         {name: "confirm", kind: "enyo.Popup", floating: true, centered: true, showing: false, 

@@ -60,12 +60,13 @@ enyo.kind({
                     name: "status",
                     layoutKind: "enyo.FittableColumnsLayout",
                     components: [
+                        {content: "Completed", fit: true, style: "padding: 5px 5px 0 0;"}, 
                         {
-                            name: "completed",
-                            kind: "onyx.Checkbox",
-                            onchange: "didCheck"
-                        },
-                        {content: "Completed", fit: true}
+                            kind: "onyx.InputDecorator",
+                            components: [
+                                {name: "completed", kind: "onyx.Checkbox", onchange: "didCheck"}
+                            ]
+                        }
                     ]
                 }
             ]

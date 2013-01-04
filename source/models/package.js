@@ -1,5 +1,5 @@
 enyo.depends(
-    "LocalStorageFix.js",
+    "Sync.js",
     "ItemModel.js",
     "ListModel.js",
     "ListCollection.js",

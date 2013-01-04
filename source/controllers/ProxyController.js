@@ -20,7 +20,9 @@ enyo.kind({
         var models = this.models || [];
         return enyo.filter(models, function (model) {return !model.get("completed")});
     }),
-    dataChanged: function () {
+    dataChanged: function (sender, event) {
+        var model = event.model;
+        if (model) model.save();
         this.renderAllRows();
     },
     modelAdded: function (sender, event) {

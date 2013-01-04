@@ -24,7 +24,7 @@ enyo.kind({
             name: "footer",
             kind: "onyx.Toolbar",
             classes: "footer",
-            controller: "Todos.lists", 
+            /*controller: "Todos.lists", 
             components: [
                 {
                     name: "details",
@@ -40,11 +40,11 @@ enyo.kind({
                         }
                     ]
                 }
-            ]
+            ]*/
         }
-    ],
+    ]/*,
     statusChanged: function () {
         this.$.details.setShowing(this.status);
         this.reflow();
-    }
+    }*/
 });

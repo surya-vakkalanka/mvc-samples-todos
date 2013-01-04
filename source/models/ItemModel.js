@@ -9,6 +9,7 @@
     ];
     
     Todos.ItemModel = Backbone.RelationalModel.extend({
+        idAttribute: "uuid",
         defaults: {
             task: "",
             selected: false,
@@ -25,6 +26,10 @@
                 this.set("task", task);
                 this.set("description", desc);
             }
+        },
+        parse: function (json) {
+            delete json.selected;
+            return json;
         }
     });
     

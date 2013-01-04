@@ -1,6 +1,7 @@
 enyo.depends(
-    "ListsController.js",
     "ModelControllerExtended.js",
+    "ListsController.js",
+    "ListsRowController.js",
     "CollectionRepeaterControllerExtended.js",
     "ProxyController.js",
     "SelectedListController.js",

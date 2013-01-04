@@ -6,6 +6,7 @@ enyo.kind({
         {from: "controller.selected", to: "selected"}
     ],
     layoutKind: "enyo.FittableColumnsLayout",
+    controller: "Todos.ListsRowController", 
     components: [
     	{
             kind: "onyx.InputDecorator", fit: true, 
@@ -16,6 +17,6 @@ enyo.kind({
                 }
             ]
         },
-        {name: "taskCount", kind: "Todos.Badge", content: "0", bindProperty: "items.length"}
+        {name: "taskCount", kind: "Todos.Badge", content: "", bindProperty: "itemLength", bindTarget: "content"}
     ]
 });
