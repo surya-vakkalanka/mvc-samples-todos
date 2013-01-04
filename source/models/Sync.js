@@ -58,7 +58,7 @@ enyo.ready(function () {
             var records = amplify.store();
             var uuids = enyo.keys(records);
             uuids = enyo.filter(uuids, function (uuid) {
-                return !!~enyo.stringIndexOf(uuid, prefix);
+                return !!~uuid.indexOf(prefix);
             });
             records = enyo.only(uuids, records);
             return records;
@@ -95,7 +95,7 @@ enyo.ready(function () {
             var records = amplify.store();
             var keys = enyo.keys(records);
             return enyo.filter(keys, function (key) {
-                return !!~enyo.stringIndexOf(key, id);
+                return !!~key.indexOf(id);
             })[0];
         }
     });
