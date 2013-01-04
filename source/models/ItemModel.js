@@ -21,7 +21,7 @@
             var rand = Math.floor((Math.random()*10)%5);
             var desc = paragraphs[rand];
             if ("" === task) {
-                task = enyo.format("%. %.", task, cid);
+                task = "Task " + this.cid;//enyo.format("%. %.", task, cid);
                 this.set("task", task);
                 this.set("description", desc);
             }

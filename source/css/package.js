@@ -1,7 +1,9 @@
 enyo.depends(
+	"Onyx.less",
     "Todos.less",
     "Lists.less",
     "LabelToolbar.less",
     "Items.less",
-    "Details.less"
+    "Details.less",
+    "Badge.less"
 );

@@ -6,9 +6,7 @@ enyo.kind({
     controller: "Todos.selectedList",
     status: null,
     bindings: [
-        {from: "controller.model", to: "$.details.showing"},
         {from: "controller.model", to: "status"},
-        {from: "controller.length", to: "$.counter.length"},
         {from: "controller.length", to: "$.count.content"}
     ],
     components: [
@@ -19,17 +17,14 @@ enyo.kind({
             fit: true,
             controller: "Todos.lists",
             components: [
-                {
-                    kind: "Todos.Row",
-                    editorBindProperty: "title",
-                    editorPlaceholder: "Add a title"
-                }
+                {kind: "Todos.ListsRow"}
             ]
         },
         {
             name: "footer",
             kind: "onyx.Toolbar",
             classes: "footer",
+            controller: "Todos.lists", 
             components: [
                 {
                     name: "details",
@@ -38,10 +33,9 @@ enyo.kind({
                     components: [
                         {name: "count", classes: "number"},
                         {
-                            name: "counter",
-                            classes: "label",
+                            name: "counter", classes: "label",
                             content: enyo.Computed(function () {
-                                return enyo.format(" entr%.", this.length === 1? "y": "ies");
+                                return enyo.format(" task%.", this.length === 1? "": "s");
                             }, "length")
                         }
                     ]
@@ -50,6 +44,7 @@ enyo.kind({
         }
     ],
     statusChanged: function () {
+        this.$.details.setShowing(this.status);
         this.reflow();
     }
 });

@@ -1,5 +1,5 @@
 enyo.kind({
-    name: "Todos.ItemsRow",
+    name: "Todos.ListsRow",
     kind: "enyo.View",
     classes: "row",
     bindings: [
@@ -8,19 +8,14 @@ enyo.kind({
     layoutKind: "enyo.FittableColumnsLayout",
     components: [
     	{
-            kind: "onyx.InputDecorator",
-            components: [
-            	{kind: "onyx.Checkbox", onchange: "didCheck", bindProperty: "completed", bindTarget: "checked"},
-            ]
-        },
-    	{
             kind: "onyx.InputDecorator", fit: true, 
             components: [
                 {
                     name: "editor", kind: "onyx.Input", classes: "editor",
-                    oninput: "input", onblur: "deselect", onfocus: "select", bindProperty: "task", bindTarget: "value"
+                    oninput: "input", onblur: "deselect", onfocus: "select", bindProperty: "title", bindTarget: "value"
                 }
             ]
-        }
+        },
+        {name: "taskCount", kind: "Todos.Badge", content: "0", bindProperty: "items.length"}
     ]
 });

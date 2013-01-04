@@ -22,6 +22,7 @@ enyo.kind({
         }
     ],
     initComponents: function () {
+        this.inherited(arguments);
         var components = this.defaultComponents;
         var bindProperty = this.editorBindProperty;
         var placeholder = this.editorPlaceholder;
@@ -29,7 +30,6 @@ enyo.kind({
         editor.bindProperty = bindProperty;
         editor.placeholder = placeholder;
         this.createComponents(components);
-        this.inherited(arguments);
     },
     selectedChanged: function () {
         var selected = this.selected;

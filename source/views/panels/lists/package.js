@@ -1,4 +1,5 @@
 enyo.depends(
     "Lists.js",
-    "ListsHeader.js"
+    "ListsHeader.js",
+    "ListsRow.js"
 );

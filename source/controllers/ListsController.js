@@ -11,7 +11,11 @@ enyo.kind({
     addList: function () {
         this.add({});
     },
-    clearList: function () {
+    removeList: function(inSender, inEvent) {
+        this.log(inSender, inEvent);
+        //this.remove();
+    },
+    clearLists: function () {
         this.reset();
     },
     didAdd: function (sender, event) {

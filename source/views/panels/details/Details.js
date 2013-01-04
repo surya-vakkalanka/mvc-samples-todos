@@ -4,39 +4,31 @@ enyo.kind({
     classes: "panel details",
     controller: "Todos.selectedItem",
     layoutKind: "enyo.FittableRowsLayout",
-    fit: true,
     status: null,
     bindings: [
-        {from: "controller.model", to: "$.header.showing"},
-        {from: "controller.model", to: "$.description.showing"},
+        {from: "controller.task", to: "$.label.content"},
         {from: "controller.model", to: "status"},
-        {from: "controller.task", to: "$.header.$.label.$.text.content"},
-        {from: "controller.completed", to: "$.completed.checked"},
+        {from: "controller.completed", to: "$.completed.checked", oneway: false},
         {from: "controller.description", to: "$.description.value"}
     ],
     components: [
-        {
-            name: "header",
-            kind: "Todos.PanelHeader",
-            components: [
-                {name: "label", content: "Completed: "},
-                {
-                    name: "completed",
-                    kind: "onyx.Checkbox",
-                    onchange: "didCheck"
-                },
+        {name: "header", kind: "onyx.Toolbar", 
+            layoutKind: "enyo.FittableColumnsLayout",
+            components: [  
+                {kind: "onyx.Grabber"},
+                {name: "label", content: " ", fit: true},
                 {
                     name: "delete",
                     kind: "onyx.Button",
-                    content: "delete",
+                    content: "Delete",
+                    classes: "onyx-negative", 
                     ontap: "destroyItem"
                 }
             ]
         },
         {
-            name: "detail",
-            kind: "enyo.View",
-            fit: true,
+            name: "detail", kind: "enyo.View", 
+            fit: true, 
             layoutKind: "enyo.FittableRowsLayout",
             components: [
                 {
@@ -58,9 +50,31 @@ enyo.kind({
                 }
             ]
         },
-        {name: "footer", kind: "onyx.Toolbar"}
+        {
+            name: "footer", kind: "onyx.Toolbar", 
+            layoutKind: "enyo.FittableColumnsLayout", 
+            components: [
+                {kind: "onyx.Grabber"},
+                {fit: true}, 
+                {
+                    name: "status",
+                    layoutKind: "enyo.FittableColumnsLayout",
+                    components: [
+                        {
+                            name: "completed",
+                            kind: "onyx.Checkbox",
+                            onchange: "didCheck"
+                        },
+                        {content: "Completed", fit: true}
+                    ]
+                }
+            ]
+        }
     ],
     statusChanged: function () {
+        this.$.delete.setShowing(this.status);
+        this.$.description.setShowing(this.status);
+        this.$.status.setShowing(this.status);
         this.reflow();
     }
 });

@@ -16,10 +16,11 @@
             selected: false,
         },
         initialize: function () {
+            console.log(this);
             var cid = this.cid;
             var title = this.get("title");
             if ("" === title) {
-                title = enyo.format("%. %.", title, cid);
+                title = "TodoList " + this.cid;//enyo.format("%. %.", title, cid);
                 this.set("title", title);
             }
             this.set("selected", false);

@@ -6,10 +6,13 @@ enyo.kind({
     controller: "Todos.selectedList",
     status: null,
     bindings: [
-        {from: "controller.model", to: "$.filters.showing"},
-        {from: "$.filters.active", to: "controller.filter"},
-        {from: "controller.model", to: "status"}
+        {from: "controller.length", to: "length"},
+        {from: "$.filters.active", to: "controller.filter"}
     ],
+    create: function() {
+        this.inherited(arguments);
+        this.lengthChanged();
+    },
     components: [
         {name: "header", kind: "Todos.ItemsHeader"},
         {
@@ -25,7 +28,10 @@ enyo.kind({
             name: "footer",
             kind: "onyx.Toolbar",
             classes: "footer",
+            layoutKind: "enyo.FittableColumnsLayout", 
             components: [
+                {kind: "onyx.Grabber"},
+                {fit: true},
                 {
                     name: "filters",
                     classes: "filters",
@@ -40,7 +46,8 @@ enyo.kind({
             ]
         }
     ],
-    statusChanged: function () {
+    lengthChanged: function() {
+        this.$.filters.setShowing(this.length > 0);
         this.reflow();
     }
 });
