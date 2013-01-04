@@ -19,7 +19,7 @@ enyo.kind({
         this.colorChanged();
     },
     contentChanged: function() {
-        if (!this.content && isNaN(this.content)) {
+        if (!this.content) {
             this.content = '';
         }
         if (this.content == '') {
