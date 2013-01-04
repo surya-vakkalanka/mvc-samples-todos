@@ -19,11 +19,29 @@ enyo.kind({
     },
     didAdd: function (sender, event) {
         var model = event.model;
+        var items = model.get("items");
         if (model.isNew()) model.save();
         model.bind("add:items", function (child) {
+            child.on("change", function () {
+                model.trigger("change", model);
+            });
+            child.on("destroy", function () {
+                model.trigger("change", model);
+            });
             child.save();
             model.save();
         });
+        if (items) {
+            items = items.models;
+            enyo.forEach(items, function (child) {
+                child.on("change", function () {
+                    model.trigger("change", model);
+                });
+                child.on("destroy", function () {
+                    model.trigger("change", model);
+                });
+            });
+        }
         model.bind("remove:items", function () {
             model.save();
         });

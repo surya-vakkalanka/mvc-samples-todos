@@ -19,7 +19,6 @@
             }
         }],
         initialize: function () {
-            console.log(this);
             var cid = this.cid;
             var title = this.get("title");
             if ("" === title) {
