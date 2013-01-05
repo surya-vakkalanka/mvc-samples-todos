@@ -11,6 +11,10 @@ enyo.kind({
         {from: "controller.completed", to: "$.completed.checked", oneway: false},
         {from: "controller.description", to: "$.description.value"}
     ],
+    create: function() {
+        this.inherited(arguments);
+        this.statusChanged();
+    },
     components: [
         {name: "header", kind: "onyx.Toolbar", 
             layoutKind: "enyo.FittableColumnsLayout",
@@ -18,11 +22,7 @@ enyo.kind({
                 {kind: "onyx.Grabber"},
                 {name: "label", content: " ", fit: true},
                 {
-                    name: "remove",
-                    kind: "onyx.Button",
-                    content: "Delete",
-                    classes: "onyx-negative", 
-                    ontap: "destroyItem"
+                    name: "delete", kind: "onyx.Button", content: "Delete", classes: "onyx-negative", ontap: "destroyItem"
                 }
             ]
         },
@@ -40,9 +40,7 @@ enyo.kind({
                             fit: true,
                             components: [
                                 {
-                                    name: "description",
-                                    kind: "onyx.TextArea",
-                                    classes: "description"
+                                    name: "description", kind: "onyx.TextArea", classes: "description"
                                 }
                             ]
                         }
@@ -73,7 +71,8 @@ enyo.kind({
         }
     ],
     statusChanged: function () {
-        this.$.remove.setShowing(this.status);
+        this.inherited(arguments);
+        this.$.delete.setShowing(this.status);
         this.$.description.setShowing(this.status);
         this.$.status.setShowing(this.status);
         this.reflow();

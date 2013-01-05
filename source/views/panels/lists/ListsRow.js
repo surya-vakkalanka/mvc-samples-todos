@@ -17,6 +17,6 @@ enyo.kind({
                 }
             ]
         },
-        {name: "taskCount", kind: "Todos.Badge", content: "", bindProperty: "itemLength", bindTarget: "content"}
+        {name: "taskCount", kind: "Todos.Badge", content: "", bindProperty: "itemLength", bindTarget: "content", background: "#333"}
     ]
 });

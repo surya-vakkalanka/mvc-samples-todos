@@ -5,10 +5,15 @@ enyo.kind({
     layoutKind: "FittableColumnsLayout", 
     controller: "Todos.lists",
     bindings: [
-        {from: "controller.length", to: "length"}
+        {from: "controller.length", to: "length"},
+        {from: "controller.length", to: "$.count.content"}
     ],
     components: [
-        {name: "label", content: "TodoLists", fit: true},
+        {name: "count", kind: "Todos.Badge", background: "#fff", color: "#333", content: ""},
+        {
+            fit: true,
+            name: "label", content: "TodoLists"
+        },
         {name: "clear", kind: "onyx.Button", classes: "onyx-negative", content: "Delete All", ontap: "clearLists"},
         {name: "add", kind: "onyx.Button", classes: "onyx-affirmative", content: "New List", ontap: "addList"},
         {name: "confirm", kind: "enyo.Popup", floating: true, centered: true, showing: false, 

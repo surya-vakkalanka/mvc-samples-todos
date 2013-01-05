@@ -7,15 +7,11 @@ enyo.kind({
     ],
     layoutKind: "enyo.FittableColumnsLayout",
     components: [
-    	{
-            kind: "onyx.InputDecorator",
-            components: [
-            	{kind: "onyx.Checkbox", onchange: "didCheck", bindProperty: "completed", bindTarget: "checked"},
-            ]
-        },
+    	
     	{
             kind: "onyx.InputDecorator", fit: true, 
             components: [
+                {kind: "onyx.Checkbox", onchange: "didCheck", bindProperty: "completed", bindTarget: "checked"},
                 {
                     name: "editor", kind: "onyx.Input", classes: "editor",
                     oninput: "input", onblur: "deselect", onfocus: "select", bindProperty: "task", bindTarget: "value"
