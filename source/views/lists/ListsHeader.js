@@ -16,8 +16,7 @@ enyo.kind({
         },
         {name: "clear", kind: "onyx.Button", classes: "onyx-negative", content: "Delete All", ontap: "clearLists"},
         {name: "add", kind: "onyx.Button", classes: "onyx-affirmative", content: "New List", ontap: "addList"},
-        {name: "confirm", kind: "enyo.Popup", floating: true, centered: true, showing: false, 
-            style: "background-color: #444; color: #fff; border-radius: 6px; padding: 20px;", 
+        {name: "confirm", kind: "enyo.Popup", floating: true, centered: true, showing: false, classes: "popup", 
             components: [
                 {content: "Are you sure you want to delete all TodoLists?", style: "margin-bottom: 20px;"},
                 {name: "removeAllBtn", kind: "onyx.Button", content: "Yes, Delete!", style: "margin-right: 20px;", classes: "onyx-affirmative", ontap: "removeAll"},

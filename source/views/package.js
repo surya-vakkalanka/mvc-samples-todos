@@ -1,5 +1,7 @@
 enyo.depends(
-    "panels",
-    "RootView.js",
-    "Panels.js"
+    "common",
+    "lists",
+    "items",
+    "details",
+    "RootView.js"
 );
