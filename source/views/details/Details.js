@@ -22,26 +22,27 @@ enyo.kind({
                 {kind: "onyx.Grabber"},
                 {name: "label", content: " ", fit: true},
                 {
-                    name: "delete", kind: "onyx.Button", content: "Delete", classes: "onyx-negative", ontap: "destroyItem"
+                    name: "delete", kind: "onyx.Button", content: "Delete Task", classes: "onyx-negative", ontap: "showDialog"
+                },
+                {name: "confirm", kind: "enyo.Popup", floating: true, centered: true, showing: false, classes: "popup", 
+                    components: [
+                        {content: "Are you sure you want to delete selected task?", style: "margin-bottom: 20px;"},
+                        {name: "removeAllBtn", kind: "onyx.Button", content: "Yes, Go Ahead!", style: "margin-right: 20px;", classes: "onyx-affirmative", ontap: "deleteTask"},
+                        {name: "cancelBtn", kind: "onyx.Button", content: "No, Cancel!", classes: "onyx-negative", ontap: "hideDialog"}
+                    ]
                 }
             ]
         },
         {
-            name: "detail", kind: "enyo.View", 
-            fit: true, 
-            layoutKind: "enyo.FittableRowsLayout",
+            name: "detail", kind: "enyo.View", fit: true, layoutKind: "enyo.FittableRowsLayout",
             components: [
                 {
-                    layoutKind: "enyo.FittableColumnsLayout",
-                    fit: true,
+                    layoutKind: "enyo.FittableColumnsLayout", fit: true,
                     components: [
                         {
-                            kind: "onyx.InputDecorator",
-                            fit: true,
+                            kind: "onyx.InputDecorator", fit: true,
                             components: [
-                                {
-                                    name: "description", kind: "onyx.TextArea", classes: "description"
-                                }
+                                {name: "description", kind: "onyx.TextArea", classes: "description"}
                             ]
                         }
                     ]
@@ -55,8 +56,7 @@ enyo.kind({
                 {kind: "onyx.Grabber"},
                 {fit: true}, 
                 {
-                    name: "status",
-                    layoutKind: "enyo.FittableColumnsLayout",
+                    name: "status", layoutKind: "enyo.FittableColumnsLayout",
                     components: [
                         {content: "Completed", fit: true, style: "padding: 5px 5px 0 0;"}, 
                         {
@@ -76,5 +76,15 @@ enyo.kind({
         this.$.description.setShowing(this.status);
         this.$.status.setShowing(this.status);
         this.reflow();
+    },
+    showDialog: function() {
+        this.$.confirm.setShowing(true);
+    },
+    hideDialog: function() {
+        this.$.confirm.setShowing(false);
+    },
+    deleteTask: function() {
+        this.controller.destroyItem();
+        this.hideDialog();
     }
 });

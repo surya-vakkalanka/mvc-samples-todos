@@ -24,7 +24,7 @@ enyo.kind({
         }
         if (this.content == '') {
             this.setBackground("transparent");
-            this.$.inner.setContent('');
+            if (this.$.inner) this.$.inner.setContent('');
             return;
         } 
         this.setShowing(true);

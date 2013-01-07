@@ -14,6 +14,11 @@ enyo.kind({
     addList: function () {
         this.add({});
     },
+    removeList: function() {
+        var model = this.selection;
+        this.remove(model);
+        model.destroy();
+    },
     clearLists: function () {
         this.reset();
     },
