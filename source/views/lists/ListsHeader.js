@@ -16,13 +16,7 @@ enyo.kind({
         },
         {name: "clear", kind: "onyx.Button", classes: "onyx-negative", content: "Delete All", ontap: "showDialog"},
         {name: "add", kind: "onyx.Button", classes: "onyx-affirmative", content: "New List", ontap: "addList"},
-        {name: "confirm", kind: "enyo.Popup", floating: true, centered: true, showing: false, classes: "popup", 
-            components: [
-                {content: "Are you sure you want to delete all TodoLists?", style: "margin-bottom: 20px;"},
-                {name: "removeAllBtn", kind: "onyx.Button", content: "Yes, Go Ahead!", style: "margin-right: 20px;", classes: "onyx-affirmative", ontap: "removeAll"},
-                {name: "cancelBtn", kind: "onyx.Button", content: "No, Cancel!", classes: "onyx-negative", ontap: "hideDialog"}
-            ]
-        }
+        {name: "confirm", kind: "Todos.Dialog", textLabel: "Are you sure you want to delete all TodoLists?", onConfirm: "removeAll"}
     ],
     lengthChanged: function() {
         this.$.clear.setShowing(this.length > 0);
@@ -31,12 +25,7 @@ enyo.kind({
     showDialog: function() {
         this.$.confirm.setShowing(true);
     },
-    hideDialog: function() {
-        this.$.confirm.setShowing(false);
-    },
     removeAll: function() {
         this.controller.clearLists();
-        this.hideDialog();
-        this.reflow();
     }
 });

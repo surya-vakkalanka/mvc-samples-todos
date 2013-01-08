@@ -1,3 +1,4 @@
 enyo.depends(
-    "Badge.js"
+    "Badge.js",
+    "Dialog.js"
 );

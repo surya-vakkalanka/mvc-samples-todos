@@ -21,16 +21,8 @@ enyo.kind({
             components: [  
                 {kind: "onyx.Grabber"},
                 {name: "label", content: " ", fit: true},
-                {
-                    name: "delete", kind: "onyx.Button", content: "Delete Task", classes: "onyx-negative", ontap: "showDialog"
-                },
-                {name: "confirm", kind: "enyo.Popup", floating: true, centered: true, showing: false, classes: "popup", 
-                    components: [
-                        {content: "Are you sure you want to delete selected task?", style: "margin-bottom: 20px;"},
-                        {name: "removeAllBtn", kind: "onyx.Button", content: "Yes, Go Ahead!", style: "margin-right: 20px;", classes: "onyx-affirmative", ontap: "deleteTask"},
-                        {name: "cancelBtn", kind: "onyx.Button", content: "No, Cancel!", classes: "onyx-negative", ontap: "hideDialog"}
-                    ]
-                }
+                {name: "delete", kind: "onyx.Button", content: "Delete Task", classes: "onyx-negative", ontap: "showDialog"},
+                {name: "confirm", kind: "Todos.Dialog", textLabel: "Are you sure you want to delete the selected task?", onConfirm: "deleteTask"}
             ]
         },
         {
@@ -80,11 +72,7 @@ enyo.kind({
     showDialog: function() {
         this.$.confirm.setShowing(true);
     },
-    hideDialog: function() {
-        this.$.confirm.setShowing(false);
-    },
     deleteTask: function() {
         this.controller.destroyItem();
-        this.hideDialog();
     }
 });
