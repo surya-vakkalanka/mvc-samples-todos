@@ -1,7 +1,6 @@
 enyo.kind({
     name: "Todos.ListsHeader",
     kind: "onyx.Toolbar", 
-    classes: "header",
     layoutKind: "FittableColumnsLayout", 
     controller: "Todos.lists",
     bindings: [

@@ -17,7 +17,7 @@ enyo.kind({
     removeList: function() {
         var model = this.selection;
         //This should happen automatically in SelectionSupportMixin and not have to rely on explicitly setting the deselect on destroy
-        //this.deselect(model);
+        this.deselect(model);
         model.destroy();
     },
     clearLists: function () {
