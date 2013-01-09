@@ -10,10 +10,7 @@ enyo.kind({
     ],
     components: [
         {name: "count", kind: "Todos.Badge", background: "#fff", color: "#333", content: ""},
-        {
-            fit: true,
-            name: "label", content: "TodoLists"
-        },
+        {name: "label", content: "TodoLists", fit: true},
         {name: "clear", kind: "onyx.Button", classes: "onyx-negative", content: "Delete All", ontap: "showDialog"},
         {name: "add", kind: "onyx.Button", classes: "onyx-affirmative", content: "New List", ontap: "addList"},
         {name: "confirm", kind: "Todos.Dialog", textLabel: "Are you sure you want to delete all TodoLists?", onConfirm: "removeAll"}

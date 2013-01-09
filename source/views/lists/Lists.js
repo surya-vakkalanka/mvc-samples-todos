@@ -33,7 +33,6 @@ enyo.kind({
         this.statusChanged();
     },
     statusChanged: function() {
-        this.log(this.status);
         this.$.delete.setShowing(this.status);
     },
     showDialog: function() {
